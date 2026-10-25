@@ -1,0 +1,12 @@
+# @tom2012/dsh-file-tree — bundle patch
+#
+# 本插件是 HOST-PLANE 行：宿主半用 ctx.webServer 注册同源路由（复用 dsh-access-gate
+# 的密码门，不新开端口），用 ctx.sessions 解析每个会话的工作区作为文件根。
+# 它必须落在宿主组合里（这个 insert），不能放进 agent preset。
+#
+# 客户端半经 package.json 的 dsh.client 声明为 web platform，注册 kind="files" 的
+# extension 档标签页类型，从而在右侧侧边栏接管原生「文件」标签页；卸载即自动还原原生。
+
+- insert:
+    - id: dsh-file-tree
+      name: '@tom2012/dsh-file-tree'

@@ -1,0 +1,68 @@
+{
+  "name": "@tom2012/dsh-file-tree",
+  "version": "0.1.0",
+  "description": "DSH Web 右侧侧边栏增强文件树：上传、下载、文件夹 ZIP、右键菜单、在线编辑与工作区文件管理。",
+  "license": "MIT",
+  "author": {
+    "name": "zbc0315"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbc0315/dsh-file-tree.git"
+  },
+  "homepage": "https://github.com/zbc0315/dsh-file-tree#readme",
+  "bugs": {
+    "url": "https://github.com/zbc0315/dsh-file-tree/issues"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./client/bundle.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "client",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build:client": "node scripts/build-client.mjs",
+    "build": "node scripts/build-client.mjs",
+    "check": "node --check src/index.js && node --check client/index.js",
+    "selftest": "node scripts/selftest.mjs",
+    "smoke": "node scripts/client-smoke.mjs",
+    "test": "npm run build && npm run check && npm run selftest && npm run smoke"
+  },
+  "devDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "file-tree",
+    "sidebar",
+    "upload",
+    "download"
+  ]
+}
